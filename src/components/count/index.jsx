@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import store from '../../redux/store'
 
 export default class Count extends Component {
 
@@ -7,38 +8,30 @@ export default class Count extends Component {
 
     increment = () =>{
         const {value} = this.checkNumbers
-        const {count} = this.state
-        this.setState({count:count + value*1})
+        store.dispatch({type:'increment',data:value*1})
     }
 
     dncrement = () =>{
         const {value} = this.checkNumbers
-        const {count} = this.state
-        this.setState({count:count - value*1})
+       
     }
 
     incrementIfOdd = () =>{
         const {value} = this.checkNumbers
-        const {count} = this.state
-        if(count%2){
-            this.setState({count:count + value*1})
-        }
+       
         
     }
 
     incrementAsync = () =>{
         const {value} = this.checkNumbers
-        const {count} = this.state
-        setTimeout(() => {
-            this.setState({count:count + value*1})
-        }, 500);
+        
        
     }
 
     render() {
         return (
             <div>
-                <h2>当前求和为:{this.state.count}</h2>
+                <h2>当前求和为:{store.getState()}</h2>
                 <select ref={c => this.checkNumbers = c}>
                     <option value="1">1</option>
                     <option value="2">2</option>
