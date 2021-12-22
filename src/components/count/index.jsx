@@ -3,9 +3,6 @@ import store from '../../redux/store'
 
 export default class Count extends Component {
 
-
-    state = {count:0}
-
     increment = () =>{
         const {value} = this.checkNumbers
         store.dispatch({type:'increment',data:value*1})
@@ -13,18 +10,22 @@ export default class Count extends Component {
 
     dncrement = () =>{
         const {value} = this.checkNumbers
-       
+        store.dispatch({type:'decrement',data:value*1})
     }
 
     incrementIfOdd = () =>{
         const {value} = this.checkNumbers
-       
+        if (store.getState()%2 !== 0) {
+           store.dispatch({type:'increment',data:value*1}) 
+        }
         
     }
 
     incrementAsync = () =>{
         const {value} = this.checkNumbers
-        
+        setTimeout(() => {
+            store.dispatch({type:'increment',data:value*1})
+        }, 500);
        
     }
 
