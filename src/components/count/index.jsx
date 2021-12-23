@@ -18,7 +18,6 @@ export default class Count extends Component {
         if (store.getState()%2 !== 0) {
            store.dispatch({type:'increment',data:value*1}) 
         }
-        
     }
 
     incrementAsync = () =>{
@@ -26,7 +25,6 @@ export default class Count extends Component {
         setTimeout(() => {
             store.dispatch({type:'increment',data:value*1})
         }, 500);
-       
     }
 
     render() {
