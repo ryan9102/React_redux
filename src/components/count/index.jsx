@@ -1,29 +1,30 @@
 import React, { Component } from 'react'
 import store from '../../redux/store'
+import {createIncrementAction,createDecrementAction} from '../../redux/count_action'
 
 export default class Count extends Component {
 
     increment = () =>{
         const {value} = this.checkNumbers
-        store.dispatch({type:'increment',data:value*1})
+        store.dispatch(createIncrementAction(value*1))
     }
 
     dncrement = () =>{
         const {value} = this.checkNumbers
-        store.dispatch({type:'decrement',data:value*1})
+        store.dispatch(createDecrementAction(value*1))
     }
 
     incrementIfOdd = () =>{
         const {value} = this.checkNumbers
         if (store.getState()%2 !== 0) {
-           store.dispatch({type:'increment',data:value*1}) 
+           store.dispatch(createIncrementAction(value*1)) 
         }
     }
 
     incrementAsync = () =>{
         const {value} = this.checkNumbers
         setTimeout(() => {
-            store.dispatch({type:'increment',data:value*1})
+            store.dispatch(createIncrementAction(value*1))
         }, 500);
     }
 
