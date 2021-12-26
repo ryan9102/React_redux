@@ -1,6 +1,6 @@
 import {DECREMENT,INCREMENT} from './constant'
 
-export default function countReducer(preState = 0 ,action) {
+export default function countReducer(preState = 55 ,action) {
     
     const {type,data} = action
     switch (type) {
