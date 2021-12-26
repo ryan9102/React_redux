@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {createIncrementAction,
+        createDecrementAction,
+        } from '../../redux/count_action'
 
-
-export default class Count extends Component {
+class Count extends Component {
 
     increment = () =>{
         const {value} = this.checkNumbers
@@ -46,3 +49,11 @@ export default class Count extends Component {
         )
     }
 }
+
+export default connect(
+    state=>({he:state}),
+    {
+        jia:createIncrementAction,
+        jian:createDecrementAction, 
+    } 
+    )(Count)
