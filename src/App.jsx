@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Count from './components/Count'
+import Count from './components/Counter'
 
 export default class App extends Component {
     render() {
