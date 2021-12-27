@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {createIncrementAction,
         createDecrementAction,
-        } from '../../redux/actions/count_action'
+        } from '../../redux/actions/count'
 
 class Count extends Component {
 
@@ -35,7 +35,8 @@ class Count extends Component {
         
         return (
             <div>
-                <h3>This is the Count Component</h3>
+                <h3>This is the Count Component. 
+                    The total number of people in Person Component is {this.props.personCount}</h3>
                 <h4>Current sum is:{this.props.he} </h4>
                 <select ref={c => this.checkNumbers = c}>
                     <option value="1">1</option>
@@ -52,7 +53,11 @@ class Count extends Component {
 }
 
 export default connect(
-    state=>({he:state}),
+    state=>{
+       return {
+        he:state.sum,
+        personCount:state.persons.length}
+    },
     {
         jia:createIncrementAction,
         jian:createDecrementAction, 

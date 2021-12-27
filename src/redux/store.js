@@ -1,6 +1,13 @@
-import { createStore } from 'redux';
-import countReducer from './reducers/count_reducer';
+import { createStore,combineReducers } from 'redux';
+import countReducer from './reducers/count';
+import personReducer from './reducers/person';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-export default createStore(countReducer,composeWithDevTools())
+
+const allReducer = combineReducers({
+    sum : countReducer,
+    persons: personReducer
+})
+
+export default createStore(allReducer,composeWithDevTools())
 
