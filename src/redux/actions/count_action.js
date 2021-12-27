@@ -1,4 +1,4 @@
-import {DECREMENT,INCREMENT} from './constant'
+import {DECREMENT,INCREMENT} from '../constant'
 
 export function createIncrementAction(number) {
     return {type:INCREMENT, data:number}

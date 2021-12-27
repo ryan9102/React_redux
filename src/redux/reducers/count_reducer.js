@@ -1,4 +1,4 @@
-import {DECREMENT,INCREMENT} from './constant'
+import {DECREMENT,INCREMENT} from '../constant'
 
 export default function countReducer(preState = 55 ,action) {
     
